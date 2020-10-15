@@ -47,14 +47,14 @@ module.exports={
         },
 
         async register(_, {registerInput: {username, password, confirmPassword, email}}, context, info){
-            // TODO:  Validate User data
+            //  Validate User data
             const {valid, errors} =validateRegisterInput(username, email, password, confirmPassword);
             if(!valid){
                 throw new UserInputError('Errors', {errors})
             }
 
 
-            // TODO: Make sure user doesn't already exist
+            // Make sure user doesn't already exist
             const user =await User.findOne({email});
             if(user){
                 throw new UserInputError('Email is Taken', {
@@ -83,5 +83,6 @@ module.exports={
                 token
             }
         }
+        
     }
 }
