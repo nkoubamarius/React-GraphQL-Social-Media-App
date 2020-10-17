@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const useFrom=(callback, initialState={})=>{
+export const useForm=(callback, initialState={})=>{
 
     const [values, setValues]=useState(initialState);
 

@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Button, Form, Icon } from 'semantic-ui-react'
 import {useMutation} from '@apollo/react-hooks';
 import gql from 'graphql-tag';
-import {useFrom} from '../util/hooks';
+import {useForm} from '../util/hooks';
 import {AuthContext} from '../context/auth';
 
 function Login(props) {
@@ -10,7 +10,7 @@ function Login(props) {
 
     const [errors, setErrors]=useState({});
 
-    const {onChange, onSubmit, values}=useFrom(loginrUserCallback, {
+    const {onChange, onSubmit, values}=useForm(loginrUserCallback, {
         username:'',
         password:'',
     });
