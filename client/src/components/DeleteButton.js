@@ -5,6 +5,7 @@ import gql from 'graphql-tag';
 import {useMutation} from '@apollo/react-hooks';
 import { FETCH_POSTS_QUERY } from '../util/graphql';
 import { AuthContext } from '../context/auth';
+import MyPopup from '../util/MyPopup';
 
 function DeleteButton({postId, commentId, callback}) {
     const context=useContext(AuthContext);
@@ -36,9 +37,12 @@ function DeleteButton({postId, commentId, callback}) {
 
     return (
         <>
+        <MyPopup content={ commentId?  "Delete Comment" : "Delete Post"} >
             <Button floated="right" as='div' color='red' basic onClick={()=>setConfirmOpen(true)}>
                 <Icon name='trash' style={{margin:0}} />
             </Button>
+        </MyPopup>
+            
             <Confirm 
                 open={confirmOpen} 
                 onCancel={()=>setConfirmOpen(false)} 
