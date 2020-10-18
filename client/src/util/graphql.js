@@ -1,22 +1,23 @@
-import gql from 'graphql-tag';
-export const FETCH_POSTS_QUERY=gql`
-{
-    getPosts{
-        id
-        body
-        createdAt
+  import gql from 'graphql-tag';
+
+export const FETCH_POSTS_QUERY = gql`
+  {
+    getPosts {
+      id
+      body
+      createdAt
+      username
+      likeCount
+      likes {
         username
-        likeCount
-        likes{
-            username
-        }
-        commentCount
-        comments{
-            id
-            createdAt
-            username
-            body
-        }
+      }
+      commentCount
+      comments {
+        id
+        username
+        createdAt
+        body
+      }
     }
-}
+  }
 `;
